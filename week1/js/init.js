@@ -7,5 +7,24 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 //JavaScript let variable declaration to create a marker
 let marker = L.marker([34.0709, -118.444]).addTo(map)
-		.bindPopup('Math Sciences 4328 aka the Technology Sandbox<br> is the lab where I work in ')
-		.openPopup();
+	.bindPopup('Math Sciences 4328 aka the Technology Sandbox<br> is the lab where I work in ')
+	.openPopup();
+
+let marker2 = L.marker([35.0709, -118.444]).addTo(map)
+	.bindPopup('new marker');
+
+	fetch("map.geojson")
+	.then(response => {
+		return response.json();
+		})
+	.then(data =>{
+		// Basic Leaflet method to add GeoJSON data
+			// the leaflet method for adding a geojson
+			L.geoJSON(data, {
+				pointToLayer: function (feature, latlng) {
+					return L.circleMarker(latlng, {color: feature.properties.color});
+				}
+			}).bindPopup(function (layer) {
+				return layer.feature.properties.place;
+			}).addTo(map);
+		});
