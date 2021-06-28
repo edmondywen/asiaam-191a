@@ -1,12 +1,50 @@
 html, body { /* multiple rules */
     padding: 5px;
+    font-family: Algerian;
+    text-align: center;
+    background-color: rgba(224, 224, 224); 
  }
 
+ol {
+    text-align: left;
+}
 
-#map {
+
+.main {
+    margin: auto; /*center*/
+    width: 50%;
+}
+
+.top {
+    margin: auto; /*center*/
+    width: 50%;
+    height: 30vh
+}
+
+.column {
+    float: left;
+    padding: 10px;
+}
+
+#left {
+    width: 25%;
+}
+
+#right {
+    width: 75%;
+}
+  
+#db8map {
     height: 40vh;
+    width: 50vh;
+    margin: auto; /*center*/
+    width: 50%;
 }
 
 #footer {
     grid-area: footer;
+}
+
+#left {
+    float: left;
 }
