@@ -9,6 +9,9 @@ ol {
     text-align: left;
 }
 
+ul {
+    text-align: left;
+}
 
 .main {
     margin: auto; /*center*/
