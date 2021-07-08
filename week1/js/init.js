@@ -1,4 +1,4 @@
-const map = L.map('db8map').setView([34.0709, -118.444], 10); //argument to map() is id of a div.
+const map = L.map('db8map').setView([34.0709, -118.444], 10); //argument to map() is id of a div. would a class work? maybe but probably shouldn't
 
 // Leaflet tile layer, i.e. the base map
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
