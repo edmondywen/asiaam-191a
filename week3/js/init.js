@@ -6,10 +6,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 let url = "https://spreadsheets.google.com/feeds/list/1MG1JovULPlyr4hx9da0ySu2ZqPd3yIGIN0lX1mQUyAE/ovjmjb4/public/values?alt=json"
 
-fetch(url)
-	.then(response => {
-		return response.json();
-		})
-    .then(data =>{
-        console.log(data)
-    })
+// fetch(url)
+// 	.then(response => {
+// 		return response.json();
+// 		})
+//     .then(data =>{
+//         console.log(data)
+//     })
