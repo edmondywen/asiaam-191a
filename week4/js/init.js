@@ -6,53 +6,33 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 let url = "https://spreadsheets.google.com/feeds/list/1MG1JovULPlyr4hx9da0ySu2ZqPd3yIGIN0lX1mQUyAE/ovjmjb4/public/values?alt=json"
 fetch(url) //api request
-	.then(response => {
-		return response.json();
-		})
-    .then(data =>{
-        console.log(data)
-    })
+.then(response => {
+  return response.json();
+  })
 
 function addMarker(data){
     L.marker([data.lat,data.long]).addTo(myMap).bindPopup(`<h2>${data.howdidyoumaketheappointment}</h2>`)
     return data.howdidyoumaketheappointment
 }
 
-let string = "hello some text"
-let number = 10
-let someList = [0,1,2,3,4]
-let object = {"property": "hi", "name":"albert"}
+function createButton(title){
+  const newButton = document.createElement("button") //create the element
+  newButton.id = "button"+title; //make sure the button has a unique id
+  newButton.innerHTML = title; //make sure button has a label by modifying html w/in the braces
+  newButton.setAttribute("title", title); //give newButton an attribute
+  return newButton;
+}
 
-// for of loop. like python for loops 
-// for (const someThing of string){
-//     console.log(someThing)
-// }
+//create story swapping buttons
+prevLoc = createButton("Previous Story");
+nextLoc = createButton("Next Story");
+controls = document.getElementById('controls')
+controls.appendChild(prevLoc)
+controls.appendChild(nextLoc)
 
-// someList.forEach(checkingData) //like map function. only works on lists
-let newList = ["hello", "lists", "cool"]
-
-// newList.forEach(checkingData)
-// for (let i = 0; i < newList.length; i++){
-//     console.log(newList[i])
-// }
-// for (const i of newList){
-//     console.log(i)
-// }
-
-// function checkingData(thisData){
-//     console.log(thisData)
-// }
-
-//addMarker
-// let messages = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
-// for (let i = 0; i < 10; i++){
-//     addMarker(i, i, messages[i])
-// }
-
-// addMarker(37,-122,'home land!')
-
+const formattedData = []
 function processData(theData){
-    const formattedData = [] /* this array will eventually be populated with the contents of the spreadsheet's rows */
+     /* this array will eventually be populated with the contents of the spreadsheet's rows */
     const rows = theData.feed.entry // this is the weird Google Sheet API format we will be removing
     // we start a for..of.. loop here 
     for(const row of rows) { 
@@ -67,16 +47,38 @@ function processData(theData){
       formattedData.push(formattedRow)
     }
     // lets see what the data looks like when its clean!
-    console.log(formattedData)
+    //console.log(formattedData)
     formattedData.forEach(addMarker)
+    return formattedData;
     // we can actually add functions here too
 }
 
+function setter(your_var, value){
+  your_var = value;
+  console.log(your_var)
+}
+
+let newData;
 fetch(url)
 	.then(response => {
 		return response.json();
 		})
-    .then(data =>{
-        // console.log(data)
-        processData(data)
-    })
+  .then(data =>{
+    return processData(data)
+  })  
+  .then(result => {
+    console.log(result)
+    setter(result, newData)
+  });
+
+console.log(newData)
+
+let test = [1, 2]
+setter(test, [3, 4])
+console.log("test is", test)
+
+//wtf is happening
+// console.log("am here")
+// console.log(formattedData)
+// //console.log(formattedData[0].lat)
+// console.log("Length is: " + formattedData.length)
