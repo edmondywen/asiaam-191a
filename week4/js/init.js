@@ -11,8 +11,8 @@ fetch(url) //api request
   })
 
 function addMarker(data){
-    L.marker([data.lat,data.long]).addTo(myMap).bindPopup(`<h2>${data.howdidyoumaketheappointment}</h2>`)
-    return data.howdidyoumaketheappointment
+    L.marker([data.lat,data.long]).addTo(myMap).bindPopup(`<h2>${data.coolstorybro}</h2>`)
+    return data.coolstorybro
 }
 
 function createButton(title){
@@ -77,7 +77,6 @@ let test = [1, 2]
 setter(test, [3, 4])
 console.log("test is", test)
 
-//wtf is happening
 // console.log("am here")
 // console.log(formattedData)
 // //console.log(formattedData[0].lat)
