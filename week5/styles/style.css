@@ -1,0 +1,29 @@
+body{
+    display:grid;
+    grid-template-columns: 0.6fr 0.3fr 0.1fr; /* this creates an even two column layout*/
+    grid-template-rows: .1fr .8fr .1fr; 
+    grid-template-areas: "head head head" "mappanel sidepanel survey" "foot foot foot"  /* this creates one row with map panel on the left and sidepanel on the right */
+} /*need to say head head head because you need to fill all the contents */
+
+#mapArea{
+    height:90vh;
+    grid-area: mappanel;
+} 
+
+#contents{
+    display: grid;
+    grid-area: sidepanel;
+    grid-template-columns: repeat(2, 1fr);
+} 
+
+#survey{
+    grid-area: survey;
+}
+
+#header{
+    grid-area: head;
+}
+
+#footer{
+    grid-area: foot;
+}
