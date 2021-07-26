@@ -2,8 +2,8 @@ const myMap = L.map('mapArea').setView([34.0709, -118.444], 5);
 
 const url = "https://spreadsheets.google.com/feeds/list/1upD99bKWIO68jL8MKWV67KE-_H_TVn2bCwqyQkqNsBw/oxw5dh3/public/values?alt=json"
 
-let speakFluentEnglish = L.featureGroup();
-let speakOtherLanguage = L.featureGroup();
+let speakFluentEnglish = L.markerClusterGroup();
+let speakOtherLanguage = L.markerClusterGroup();
 
 let mapLayers = {
     "Speaks English": speakFluentEnglish,
